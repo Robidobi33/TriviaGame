@@ -28,10 +28,17 @@ body{
     color:white;
     font-family: 'Exo', sans-serif;
     font-size: 24px;
+    text-align: center;
+}
+
+button{
+    color:white;
+    font-size: 24px;
+    font-family: 'Exo', sans-serif;
 }
 
 #timerBox{
-    background-color:rgba(0, 0, 0, 0.603);
+    background-color:rgba(0, 0, 0, 0);
     width:30%;
     height:50px;
     margin:15px auto 30px auto;
@@ -41,14 +48,17 @@ body{
 }
 
 #Question{
-    background-color:rgba(0, 0, 0, 0.603);
+    background-color:rgba(0, 0, 0, 0);
     width:100%;
     height:75px;
     margin:30px auto 30px auto;
     text-align: center;
     vertical-align: center;
     line-height: 75px;
+    font-size:24px;
 }
+
+
 
 #aOne{
     background-color:rgba(85, 148, 56, 0.479);

@@ -7,18 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js"></script>
+
 </head>
 <body>
     
     <div class="navBar"><h2>Morrowind Trivia</h2></div>
-    <div class="fadeBox" style="text-align: center">
+    <div class="fadeBox"> 
         <div id = "timerBox"></div>
         <div id = "Question"></div>
-        <button id = "aOne"></button>
-        <button id = "aTwo"></button>
-        <button id = "aThree"></button>
-        <button id = "aFour"></button>
+
+        <div id = "start" onclick = "startQuiz()">
+            <button id = "aOne">Start Quiz</button>
+        </div>
+
+        <button id = "aTwo" value = "2" style="visibility:hidden"></button>
+        <button id = "aThree" value = "3" style="visibility:hidden"></button>
+        <button id = "aFour" value = "4"  style="visibility:hidden"></button>
     </div>
 
 

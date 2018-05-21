@@ -37,7 +37,7 @@ var quiz = [
     },
 
     qFive = {
-        q: "Which race was one of two enslaved races by the Dunmer?",
+        q: "The Dunmer enslaved which of the following races?",
         a:  "Khajiit",
         b:  "Bosmer",
         c:  "Falmer",
@@ -47,16 +47,63 @@ var quiz = [
 
 ];
 
+var questionIndex = 0;
+var value = 0;
 function startQuiz(){
-
+   
+    $("#start").attr("onclick", "");
+    $("#aOne").val("1"); 
     
+    $("#aTwo, #aThree, #aFour").css('visibility', 'visible');
+     
+    var questionIndex = 0;
+    
+
+    function newQuestion(){
+
+        if (questionIndex <= (quiz.length - 1)){
+           
+            $("#Question").html(quiz[questionIndex].q);
+            $("#aOne").html(quiz[questionIndex].a); 
+            $("#aTwo").html(quiz[questionIndex].b);
+            $("#aThree").html(quiz[questionIndex].c);
+            $("#aFour").html(quiz[questionIndex].d);
+
+        }
+
+        else{
+            $("#Question").html("Game Over!");
+        }
+    }
+
+newQuestion();
+
+    $("button").on("click", function(){
+        value = $(this).val();
+        
+        switch(value){
+            case "1": 
+                alert(quiz[questionIndex].a)
+                break;
+            case "2":
+                alert(quiz[questionIndex].b)
+                break;
+            case "3":
+                alert(quiz[questionIndex].c)
+                break;
+            case "4":
+                alert(quiz[questionIndex].d)
+                break;
+        };
+
+    });
 
 }
 
-/*for(i=0;i<quiz.length;i++){
-    $("Question").html(quiz[i].q);
-    $("aOne").html(quiz[i].a);
-    $("aTwo").html(quiz[i].b);
-    $("aThree").html(quiz[i].c);
-    $("aFour").html(quiz[i].d);
-};*/
+
+
+
+  
+  
+
+
