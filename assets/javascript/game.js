@@ -55,7 +55,8 @@ function startQuiz(){
     $("#aOne").val("1"); 
     
     $("#aTwo, #aThree, #aFour").css('visibility', 'visible');
-     
+    
+    var counter;
     var questionIndex = 0;
     var score = 0;
     var sec = 60;
@@ -65,13 +66,25 @@ function startQuiz(){
 
     function timer(){
         sec--
-        $("#display").html("00:" + sec)
+        $("#display").html("00:" + sec);
+        if(sec < 10){
+            $("#display").html("00:0" + sec);
+        }
+
+        if(sec === 0){
+            clearInterval(counter);
+            $("#display").text("00:00");
+            $("#aOne, #aTwo, #aThree, #aFour").css('visibility', 'hidden');
+            $("#Question").text("Times up!  Game Over"); 
+
+        }
     }
 
     function startTimer(){
 
-        setInterval(timer, 1000);
-        $("#display").html("00:" + sec)
+        counter = setInterval(timer, 1000);
+        $("#display").html("00:" + sec);
+
     }
 
     startTimer();
@@ -89,6 +102,7 @@ function startQuiz(){
         }
 
         else{
+            clearInterval(counter);
             $("#Question").html("You got " + score + "/5 correct!");
             $("#aOne, #aTwo, #aThree, #aFour").css('visibility', 'hidden');
             $("#aOne").text("Quit Game")//.on("click", reset);  couldnt get the quit button to work
