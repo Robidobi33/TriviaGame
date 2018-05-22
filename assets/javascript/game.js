@@ -57,10 +57,27 @@ function startQuiz(){
     $("#aTwo, #aThree, #aFour").css('visibility', 'visible');
      
     var questionIndex = 0;
-    
+    var score = 0;
+    var sec = 60;
+    function reset(){
+        window.location.reload();
+     }
+
+    function timer(){
+        sec--
+        $("#display").html("00:" + sec)
+    }
+
+    function startTimer(){
+
+        setInterval(timer, 1000);
+        $("#display").html("00:" + sec)
+    }
+
+    startTimer();
 
     function newQuestion(){
-
+       
         if (questionIndex <= (quiz.length - 1)){
            
             $("#Question").html(quiz[questionIndex].q);
@@ -72,7 +89,9 @@ function startQuiz(){
         }
 
         else{
-            $("#Question").html("Game Over!");
+            $("#Question").html("You got " + score + "/5 correct!");
+            $("#aOne, #aTwo, #aThree, #aFour").css('visibility', 'hidden');
+            $("#aOne").text("Quit Game")//.on("click", reset);  couldnt get the quit button to work
         }
     }
 
@@ -83,18 +102,33 @@ newQuestion();
         
         switch(value){
             case "1": 
-                alert(quiz[questionIndex].a)
+                if (quiz[questionIndex].a == quiz[questionIndex].ca){
+                    alert("correct"); score++;
+                }
+                else{alert("wrong answer")}
                 break;
             case "2":
-                alert(quiz[questionIndex].b)
+                if(quiz[questionIndex].b == quiz[questionIndex].ca){
+                alert("correct"); score++;
+            }
+                else{alert("wrong answer")}
                 break;
             case "3":
-                alert(quiz[questionIndex].c)
+                if(quiz[questionIndex].c == quiz[questionIndex].ca){
+                alert("correct"); score++;
+            }
+                else{alert("wrong answer")}
                 break;
             case "4":
-                alert(quiz[questionIndex].d)
+                if(quiz[questionIndex].c == quiz[questionIndex].ca){
+                alert("correct"); score++;
+            }
+                else{alert("wrong answer")}
                 break;
         };
+
+        questionIndex++;
+        newQuestion();
 
     });
 
